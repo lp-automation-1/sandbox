@@ -1,0 +1,12 @@
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+name: on-schedule
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT: ${{ github.event_name }}
+        run: "echo ${EVENT}"
