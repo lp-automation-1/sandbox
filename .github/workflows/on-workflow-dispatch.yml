@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+
+name: on-workflow-dispatch
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT: ${{ github.event_name }}
+        run: "echo ${EVENT}"
