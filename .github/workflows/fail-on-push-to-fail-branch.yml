@@ -1,0 +1,14 @@
+on:
+  push
+name: fail-on-push-to-fail-branch
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [[ $GITHUB_REF == refs/heads/fail ]]; then
+            echo "Failing because current branch is "fail""
+            exit 1
+          fi
