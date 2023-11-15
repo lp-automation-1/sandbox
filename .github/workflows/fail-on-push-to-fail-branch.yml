@@ -8,7 +8,7 @@ jobs:
       - env:
           EVENT: ${{ github.event_name }}
         run: |
-          if [[ $GITHUB_REF == *fail*) ]]; then
+          if [[ $GITHUB_REF == *fail* ]]; then
             echo "Failing because current branch contains word fail"
             exit 1
           fi
